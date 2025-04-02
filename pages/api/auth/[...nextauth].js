@@ -8,7 +8,6 @@ async function getUser(email) {
     const sql = neon(`${process.env.DATABASE_URL}`);
     const result = await sql`SELECT * FROM users WHERE email=${email}`;
 
-    // Inspect query result
     console.log('Query result:', result);
 
     if (result && result.length > 0) {
@@ -34,22 +33,32 @@ export default NextAuth({
       async authorize(credentials) {
         console.log('Attempting to authenticate with credentials:', credentials);
 
+        // Demo user credentials from environment variables
+        const demoEmail = process.env.NEXT_PUBLIC_DEMO_EMAIL;
+        const demoPassword = process.env.NEXT_PUBLIC_DEMO_PASSWORD;
+
+        // Check if the user is using the demo account
+        if (credentials.email === demoEmail) {
+          if (credentials.password !== demoPassword) {
+            console.error('Invalid password for demo account');
+            throw new Error('Invalid password');
+          }
+          console.log('Demo user authenticated successfully');
+          return { id: 'demo-user', email: demoEmail, name: 'Demo User', role: 'demo' };
+        }
+
         // Retrieve user from the database
         const user = await getUser(credentials.email);
 
         if (user) {
-          // Log the stored hashed password and the password from the login attempt
           console.log('Stored password (hashed):', user.password);
           console.log('Password from login attempt:', credentials.password);
 
-          // Compare password hash with the password provided during login
+          // Compare hashed password
           const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
-
-          // Log comparison result
           console.log('Password comparison result:', passwordsMatch);
 
           if (passwordsMatch) {
-            // Authentication successful
             console.log('User authenticated successfully:', user);
             return { id: user.id, email: user.email, name: user.name };
           } else {
@@ -59,8 +68,7 @@ export default NextAuth({
           console.error('No user found with email:', credentials.email);
         }
 
-        // Return null if authentication fails
-        return null;
+        return null; // Authentication failed
       },
     }),
   ],
