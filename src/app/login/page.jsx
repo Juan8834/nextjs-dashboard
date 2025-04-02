@@ -72,6 +72,13 @@ export default function LoginPage() {
             {isLoading ? 'Logging In...' : 'Log In'}
           </button>
         </form>
+
+        {/* 🔹 Demo Login Info Box */}
+        <div className="mt-4 p-3 border border-gray-300 rounded-md text-sm bg-gray-50">
+          <p className="font-semibold">Try the Demo Account:</p>
+          <p><strong>Email:</strong> demo@example.com</p>
+          <p><strong>Password:</strong> DemoPassword123</p>
+        </div>
       </div>
     </main>
   );
