@@ -1,7 +1,12 @@
-import NextAuth from 'next-auth';
-import { authConfig } from '../auth.config';
-export default NextAuth(authConfig).auth;
+// src/middleware.js
+
+import { NextResponse } from 'next/server';
+
+export function middleware(request) {
+  // For now, allow all requests through
+  return NextResponse.next();
+}
+
 export const config = {
-  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
   matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
 };
