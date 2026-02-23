@@ -1,5 +1,9 @@
+"use client"; // ← important: marks this file as client-side
+
 import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { deleteInvoice } from '@/app/lib/actions';
+import { useRouter } from 'next/navigation';
 
 export function CreateInvoice() {
   return (
@@ -16,7 +20,7 @@ export function CreateInvoice() {
 export function UpdateInvoice({ id }) {
   return (
     <Link
-      href="/dashboard/invoices"
+      href={`/dashboard/invoices/${id}/edit`}
       className="rounded-md border p-2 hover:bg-gray-100"
     >
       <PencilIcon className="w-5" />
@@ -25,12 +29,28 @@ export function UpdateInvoice({ id }) {
 }
 
 export function DeleteInvoice({ id }) {
+  const router = useRouter();
+
+  const handleDelete = async () => {
+    if (!confirm("Are you sure you want to delete this invoice?")) return;
+
+    try {
+      await deleteInvoice(id);
+      // Refresh the page after deletion
+      router.refresh();
+    } catch (err) {
+      console.error(err);
+      alert("Failed to delete invoice");
+    }
+  };
+
   return (
-    <>
-      <button className="rounded-md border p-2 hover:bg-gray-100">
-        <span className="sr-only">Delete</span>
-        <TrashIcon className="w-5" />
-      </button>
-    </>
+    <button
+      onClick={handleDelete}
+      className="rounded-md border p-2 hover:bg-gray-100"
+    >
+      <span className="sr-only">Delete</span>
+      <TrashIcon className="w-5" />
+    </button>
   );
 }
