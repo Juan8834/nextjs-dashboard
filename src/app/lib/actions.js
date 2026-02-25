@@ -68,7 +68,11 @@ export async function getInvoices() {
 
 export async function createInvoice(formData) {
   const customerId = formData.get("customerId");
-  const amount = formData.get("amount");
+
+  // ✅ Convert dollars to cents
+  const amountInDollars = formData.get("amount");
+  const amount = Math.round(parseFloat(amountInDollars) * 100);
+
   const status = formData.get("status");
   const date = new Date().toISOString().split("T")[0];
 
@@ -82,7 +86,6 @@ export async function createInvoice(formData) {
     throw new Error("Failed to create invoice.");
   }
 
-  // ✅ Updated path
   revalidatePath("/ui/invoices");
   redirect("/ui/invoices");
 }
@@ -103,7 +106,11 @@ export async function getInvoiceById(id) {
 
 export async function updateInvoice(id, formData) {
   const customerId = formData.get("customerId");
-  const amount = formData.get("amount");
+
+  // ✅ Convert dollars to cents
+  const amountInDollars = formData.get("amount");
+  const amount = Math.round(parseFloat(amountInDollars) * 100);
+
   const status = formData.get("status");
 
   try {
@@ -119,7 +126,6 @@ export async function updateInvoice(id, formData) {
     throw new Error("Failed to update invoice.");
   }
 
-  // ✅ Updated path
   revalidatePath("/ui/invoices");
   redirect("/ui/invoices");
 }
@@ -135,6 +141,5 @@ export async function deleteInvoice(id) {
     throw new Error("Failed to delete invoice.");
   }
 
-  // ✅ Updated path
   revalidatePath("/ui/invoices");
 }
