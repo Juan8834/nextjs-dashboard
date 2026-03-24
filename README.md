@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+💰 Financial Dashboard
 
-## Getting Started
+A modern, secure, and responsive financial dashboard built with Next.js, Tailwind CSS, and NextAuth.js, designed to manage customers, invoices, and revenue analytics—all in one place.
 
-First, run the development server:
+🚀 Features
+Authentication & Security
 
-```bash
+🔒 Secure login system using NextAuth.js
+
+🛡️ Protected dashboard routes
+
+Dashboard Overview
+
+📊 Revenue charts & analytics
+
+📝 Latest invoices & status updates
+
+💳 Summary cards for quick insights
+
+Invoice Management
+
+➕ Create new invoices
+
+✏️ Edit existing invoices
+
+🗑️ Delete invoices
+
+📄 Paginated invoice lists
+
+Customer Management
+
+👥 View all customers
+
+🔍 Search & filter customer data
+
+🗂️ Detailed customer profiles
+
+Responsive & Modern UI
+
+💻 Desktop and 📱 mobile-friendly
+
+Tailwind CSS styling for clean, modern design
+
+📂 Project Structure
+financial-dashboard/
+├─ public/                 # Images & static assets
+├─ src/
+│  ├─ app/
+│  │  ├─ api/              # Auth & other API routes
+│  │  ├─ dashboard/        # Dashboard pages & components
+│  │  ├─ login/            # Login page
+│  │  ├─ ui/               # Reusable components (buttons, tables, charts)
+│  │  └─ globals.css       # Global styling
+├─ package.json
+├─ tailwind.config.js
+├─ next.config.js
+└─ postcss.config.js
+🛠️ Tech Stack
+
+Next.js 13+ – App Router & React 18
+
+Tailwind CSS – Modern styling
+
+NextAuth.js – Authentication & sessions
+
+Vercel – Deployment
+
+💻 Getting Started
+# Clone the repo
+git clone https://github.com/Juan8834/financial-dashboard.git
+cd financial-dashboard
+
+# Install dependencies
+npm install
+
+# Add environment variables
+# Example: NEXTAUTH_SECRET, DATABASE_URL, etc.
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
+ to view your dashboard.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+ ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+🎯 Future Improvements
 
-## Learn More
+💸 Add money transfer functionality
 
-To learn more about Next.js, take a look at the following resources:
+📈 More charts & data visualization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🌙 Dark/light mode toggle
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+♿ Improved accessibility (ARIA, keyboard navigation)
 
-## Deploy on Vercel
+🖥️ Mobile & tablet UI optimization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📫 Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+GitHub: Juan8834
+
+Portfolio: juan8834-github-io.vercel.app
