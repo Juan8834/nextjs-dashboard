@@ -1,15 +1,15 @@
-💰 Financial Dashboard
+## 💰 Financial Dashboard
 
 A modern, secure, and responsive financial dashboard built with Next.js, Tailwind CSS, and NextAuth.js, designed to manage customers, invoices, and revenue analytics—all in one place.
 
-🚀 Features
+## 🚀 Features
 Authentication & Security
 
 🔒 Secure login system using NextAuth.js
 
 🛡️ Protected dashboard routes
 
-Dashboard Overview
+## Dashboard Overview
 
 📊 Revenue charts & analytics
 
@@ -17,7 +17,7 @@ Dashboard Overview
 
 💳 Summary cards for quick insights
 
-Invoice Management
+## Invoice Management
 
 ➕ Create new invoices
 
@@ -27,7 +27,7 @@ Invoice Management
 
 📄 Paginated invoice lists
 
-Customer Management
+## Customer Management
 
 👥 View all customers
 
@@ -41,7 +41,7 @@ Responsive & Modern UI
 
 Tailwind CSS styling for clean, modern design
 
-📂 Project Structure
+## 📂 Project Structure
 financial-dashboard/
 ├─ public/                 # Images & static assets
 ├─ src/
@@ -55,7 +55,8 @@ financial-dashboard/
 ├─ tailwind.config.js
 ├─ next.config.js
 └─ postcss.config.js
-🛠️ Tech Stack
+
+# 🛠️ Tech Stack
 
 Next.js 13+ – App Router & React 18
 
@@ -64,8 +65,8 @@ Tailwind CSS – Modern styling
 NextAuth.js – Authentication & sessions
 
 Vercel – Deployment
-
-💻 Getting Started
+```
+ 💻 Getting Started
 # Clone the repo
 git clone https://github.com/Juan8834/financial-dashboard.git
 cd financial-dashboard
@@ -96,7 +97,8 @@ Open http://localhost:3000
 
 🖥️ Mobile & tablet UI optimization
 
-📫 Contact
+
+## 📫 Contact
 
 GitHub: Juan8834
 
